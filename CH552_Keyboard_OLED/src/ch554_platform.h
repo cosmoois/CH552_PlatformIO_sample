@@ -145,11 +145,11 @@
 
 
 
-#include "ch554_conf.H"
+#include "ch554_conf.h"
 
 #ifdef __SDCC
-	#include "include\ch554.h"
-	#include "include\ch554_usb.h"
+	#include "ch554.h"
+	#include "ch554_usb.h"
 #endif
 
 #ifdef __C51__

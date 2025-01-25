@@ -32,7 +32,10 @@ WeActStudio CH552 : Bootloader 2.5.0<BR>
 
 [Intel MCS-51 (8051)](https://github.com/platformio/platform-intel_mcs51) のバージョンが(2.1.0)の時点では、ボードの定義がないため、[CH552_pre.json](CH552_Keyboard_OLED/CH552_pre.json) を、下記パスに配置する<BR>
 ```
+windows:
 %UserProfile%/.platformio/platforms/intel_mcs51/boards
+linux:
+/home/user/.platformio/platforms/intel_mcs51/boards
 ```
 
 
@@ -46,6 +49,13 @@ DFUモードの滞在は、10秒程度なので、その前に操作を完了さ
 
 
 ### デバイスドライバ
+
+linuxについてはドライバが不要で、ターミナルで以下を実施すれば良いとのこと
+https://github.com/wagiminator/CH552-USB-OLED/tree/main/software/cdc_oled_terminal/tools
+```
+echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="4348", ATTR{idProduct}=="55e0", MODE="666"' | sudo tee /etc/udev/rules.d/99-ch55x.rules
+sudo udevadm control --reload-rules
+```
 
 デバイスドライバについては明確な情報が見つけられず、複数のPCで動作した結果から推測したものを記載しています。<BR>
 ご容赦ください。<BR>
